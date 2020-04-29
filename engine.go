@@ -1,24 +1,24 @@
 Package engine
 
 Import (
-       ìdlee/fetcherî
-       ìdlee/crawlî
-       ìlogî
+       ‚Äúfetcher‚Äù
+       ‚Äúcrawl‚Äù
+       ‚Äúlog‚Äù
 )
 
 func Run(seed string, linkLimit int) {
        if len(seed) > 0 {
-       log.Printf(ìFetching %sî, seed)
+              log.Printf(‚ÄúFetching %s‚Äù, seed)
        
-       body, err := fetcher.Fectch(seed)
-       if err != nil {
-       log.Printf(ìFetch error: url %s,%vî, seed, err)
-       log.Fatal(err)
-       }
-       err = crawl.ParseUrlListAndContent(body, linkLimit)
-       if err != nil {
-       	log.Fatal(err)
-       }
+              body, err := fetcher.Fectch(seed)
+              if err != nil {
+                     log.Printf(‚ÄúFetch error: url %s,%v‚Äù, seed, err)
+                     log.Fatal(err)
+              }
+              err = crawl.ParseUrlListAndContent(body, linkLimit)
+              if err != nil {
+       	       log.Fatal(err)
+              }
        }
 }
   
