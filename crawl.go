@@ -8,7 +8,7 @@ import (
 )
 
 func ParseUrlListAndContent(contents []byte, linkLimit int) error {
-	re := regexp.MustCompile("(?s)<a[ t]+.*?href=”(http.*?)”.*?>.*?</a>")
+	re := regexp.MustCompile("(?s)<a[ t]+.*?href="(http.*?)".*?>.*?</a>")
 	newUrls := re.FindAllSubmatch(contents,-1)     //[][][]byte
 
 	file, err := os.Create("link_output.txt")
