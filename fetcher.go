@@ -10,7 +10,7 @@ import (
 func Fetch(url string) ([]byte, error) {
 	resp, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		log.Printf(ìGET error: %vî, err)
+		log.Printf("GET error: %v", err)
 		return nil, err
 	}
 	
@@ -19,12 +19,12 @@ func Fetch(url string) ([]byte, error) {
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("Wrong status code: %d", resp.StatusCode)
 	} else {
-       body, err := ioutil.ReadAll(resp.Body)
-       if err != nil {
-       	log.Printf(ìRead error: %vî, err)
-       	return nil, err
-       } else {
-       	return body, nil
-       }
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Printf(‚ÄúRead error: %v‚Äù, err)
+			return nil, err
+		} else {
+			return body, nil
+		}
 	}
 }
